@@ -30,9 +30,14 @@ public class ScanText {
             String[] fields = str.split(" ");
             treeMap.put(fields[0], fields[1]);
         }
+        for (Map.Entry e : treeMap.entrySet()){
+            if (e.getKey().toString().startsWith("accccccbcbcbb")){
+                System.out.println(e);
+            }
+        }
 
         System.out.println(treeMap.size());
-        System.out.println(treeMap.containsKey("b"));
+        System.out.println(treeMap.containsKey("a"));
         System.out.println(treeMap.containsValue("a"));
 
         List treemap2 = Sorter.SortByValue(treeMap);
@@ -40,5 +45,7 @@ public class ScanText {
         br.close();
 
     }
+
+
 }
 
