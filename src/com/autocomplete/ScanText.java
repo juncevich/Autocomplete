@@ -22,6 +22,7 @@ public class ScanText {
         BufferedReader bread=new BufferedReader(new InputStreamReader(System.in));
         String h=bread.readLine();
         treeMap = new TreeMap();
+        tempTreeMap = new TreeMap();
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream("resources\\test.in"), "Cp1251"));
         String str;
@@ -35,12 +36,12 @@ public class ScanText {
         }
         for (Map.Entry e : treeMap.entrySet()){
             if (e.getKey().toString().startsWith(h)){
-                System.out.println(e);
+                //System.out.println(e);
                 tempTreeMap.put(e.getKey(), e.getValue());
             }
         }
-        List linkedList = new LinkedList<>(Sorter.SortByValue(tempTreeMap));
-        for(int f =0; f<10; f++){
+        List linkedList = new ArrayList<>(Sorter.SortByValue(tempTreeMap));
+        for(int f =linkedList.size(); f>0; f--){
             System.out.println(linkedList.get(f));
         }
 
