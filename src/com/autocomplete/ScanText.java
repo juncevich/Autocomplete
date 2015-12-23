@@ -23,7 +23,7 @@ public class ScanText {
 //        }
         treeMap = new TreeMap();
         BufferedReader br = new BufferedReader(new InputStreamReader(
-                new FileInputStream("D:\\IdeaProjects\\Autocomplete\\resources\\test.in"), "Cp1251"));
+                new FileInputStream("resources\\test.in"), "Cp1251"));
         String str;
 
         int i = 0;
