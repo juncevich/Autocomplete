@@ -6,6 +6,7 @@ import java.util.*;
 
 public class ScanText {
     static TreeMap<Object, Object> treeMap;
+    static TreeMap<Object, Object> tempTreeMap;
     public static void scan() throws IOException{
 //        try {
 //
@@ -18,6 +19,8 @@ public class ScanText {
 //     } catch (FileNotFoundException e) {
 //            e.printStackTrace();
 //        }
+        BufferedReader bread=new BufferedReader(new InputStreamReader(System.in));
+        String h=bread.readLine();
         treeMap = new TreeMap();
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream("resources\\test.in"), "Cp1251"));
@@ -31,16 +34,21 @@ public class ScanText {
             treeMap.put(fields[0], fields[1]);
         }
         for (Map.Entry e : treeMap.entrySet()){
-            if (e.getKey().toString().startsWith("accccccbcbcbb")){
+            if (e.getKey().toString().startsWith(h)){
                 System.out.println(e);
+                tempTreeMap.put(e.getKey(), e.getValue());
             }
+        }
+        List linkedList = new LinkedList<>(Sorter.SortByValue(tempTreeMap));
+        for(int f =0; f<10; f++){
+            System.out.println(linkedList.get(f));
         }
 
         System.out.println(treeMap.size());
         System.out.println(treeMap.containsKey("a"));
         System.out.println(treeMap.containsValue("a"));
 
-        List treemap2 = Sorter.SortByValue(treeMap);
+
 
         br.close();
 
