@@ -2,10 +2,7 @@ package com.autocomplete;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class ScanText {
     static TreeMap<Object, Object> treeMap;
@@ -35,7 +32,11 @@ public class ScanText {
         }
 
         System.out.println(treeMap.size());
-        //System.out.println(treeMap.entrySet());
+        System.out.println(treeMap.containsKey("b"));
+        System.out.println(treeMap.containsValue("a"));
+
+        List treemap2 = Sorter.SortByValue(treeMap);
+
         br.close();
 
     }
