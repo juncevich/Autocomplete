@@ -1,54 +1,60 @@
 package com.autocomplete;
 
 
+import sun.reflect.generics.tree.Tree;
+
 import java.io.*;
 import java.util.*;
 
 public class ScanText {
-    static TreeMap<Object, Object> treeMap;
+    static TreeMap<Object, Object> dictionaryMap;
     static TreeMap<Object, Object> tempTreeMap;
-    public static void scan() throws IOException{
-//        try {
-//
-//            Scanner scan=new Scanner(new FileInputStream("D:\\IdeaProjects\\Autocomplete\\resources\\test.in"));
-//            while (scan.hasNextLine()) {
-//                String s=scan.nextLine();
-//                System.out.println(s);
-//            }
-//         scan.close();
-//     } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-        BufferedReader bread=new BufferedReader(new InputStreamReader(System.in));
-        String h=bread.readLine();
-        treeMap = new TreeMap();
-        tempTreeMap = new TreeMap();
+    static LinkedList<String> spisokSlov;
+
+
+
+
+
+
+    public void parseFile() throws IOException{
+        dictionaryMap = new TreeMap();
+        spisokSlov = new LinkedList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream("resources\\test.in"), "Cp1251"));
         String str;
 
-        int i = 0;
-        Integer j = Integer.parseInt(br.readLine());
-        for (int ii = 0; ii< j; ii++) {
+
+        int kolvoZapisSlovar = Integer.parseInt(br.readLine());
+        for (Integer i = 0; i < kolvoZapisSlovar; i++) {
             str = br.readLine();
             String[] fields = str.split(" ");
-            treeMap.put(fields[0], fields[1]);
+            dictionaryMap.put(fields[0], fields[1]);
         }
-        for (Map.Entry e : treeMap.entrySet()){
-            if (e.getKey().toString().startsWith(h)){
-                //System.out.println(e);
-                tempTreeMap.put(e.getKey(), e.getValue());
-            }
+        int kolvoSlov = Integer.parseInt(br.readLine());
+        for (int i = 0; i < kolvoSlov; i++) {
+            str = br.readLine();
+            spisokSlov.add(str);
         }
-        List linkedList = new ArrayList(Sorter.SortByValue(tempTreeMap));
-        for(int f =(linkedList.size()-1); f>(linkedList.size()-11); f--){
-            System.out.println(linkedList.get(f));
-        }
-
-        br.close();
-
     }
 
+    public void findMatches(){
+        tempTreeMap = new TreeMap();
+        for (String slovo:
+             spisokSlov) {
+            for (Map.Entry e : dictionaryMap.entrySet()){
+                if (e.getKey().toString().startsWith(slovo)){
+                    //System.out.println(e);
+                    tempTreeMap.put(e.getKey(), e.getValue());
+                    System.out.println(e.getKey());
+                }
+            }
+
+            }
+//        List linkedList = new ArrayList(Sorter.SortByValue(tempTreeMap));
+//        for(int f =(linkedList.size()-1); f>(linkedList.size()-11); f--){
+//            System.out.println(linkedList.get(f));
+//        }
+        }
 
 }
 
