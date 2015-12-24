@@ -9,11 +9,11 @@ import java.util.Map;
  */
 public class ValuesComparator implements Comparator{
     @Override
-    public int compare(Object o1, Object o2) {
-        Map.Entry e1 = (Map.Entry) o1;
-        Map.Entry e2 = (Map.Entry) o2;
-        Comparable c1 = (Comparable) e1.getValue();
-        Comparable c2 = (Comparable) e2.getValue();
+    public int compare(final Object o1, final Object o2) {
+        final Map.Entry e1 = (Map.Entry) o1;
+        final Map.Entry e2 = (Map.Entry) o2;
+        final Comparable c1 = (Comparable) e1.getValue();
+        final Comparable c2 = (Comparable) e2.getValue();
         return c1.compareTo(c2);
     }
 }

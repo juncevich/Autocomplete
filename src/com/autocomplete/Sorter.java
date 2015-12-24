@@ -15,8 +15,8 @@ public class Sorter {
      * @param treeMap сортируемый TreeMap.
      * @return отсортированный список по значениям.
      */
-    public static List SortByValue(TreeMap treeMap){
-        List entryList = new ArrayList(treeMap.entrySet());
+    public static List SortByValue(final TreeMap treeMap){
+        final List entryList = new ArrayList(treeMap.entrySet());
         Collections.sort(entryList, new ValuesComparator());
 
         return entryList;
