@@ -40,16 +40,10 @@ public class ScanText {
                 tempTreeMap.put(e.getKey(), e.getValue());
             }
         }
-        List linkedList = new ArrayList<>(Sorter.SortByValue(tempTreeMap));
-        for(int f =linkedList.size(); f>0; f--){
+        List linkedList = new ArrayList(Sorter.SortByValue(tempTreeMap));
+        for(int f =(linkedList.size()-1); f>(linkedList.size()-11); f--){
             System.out.println(linkedList.get(f));
         }
-
-        System.out.println(treeMap.size());
-        System.out.println(treeMap.containsKey("a"));
-        System.out.println(treeMap.containsValue("a"));
-
-
 
         br.close();
 
