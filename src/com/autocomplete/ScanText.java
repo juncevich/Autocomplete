@@ -9,16 +9,16 @@ import java.util.*;
 public class ScanText {
     static TreeMap<Object, Object> dictionaryMap;
     static TreeMap<Object, Object> tempTreeMap;
-    static LinkedList<String> spisokSlov;
+    static ArrayList<String> spisokSlov;
 
 
 
 
 
 
-    public void parseFile() throws IOException{
+    public static void parseFile() throws IOException{
         dictionaryMap = new TreeMap();
-        spisokSlov = new LinkedList<>();
+        spisokSlov = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(
                 new FileInputStream("resources\\test.in"), "Cp1251"));
         String str;
@@ -37,7 +37,7 @@ public class ScanText {
         }
     }
 
-    public void findMatches(){
+    public static void findMatches(){
         tempTreeMap = new TreeMap();
         for (String slovo:
              spisokSlov) {
@@ -45,7 +45,7 @@ public class ScanText {
                 if (e.getKey().toString().startsWith(slovo)){
                     //System.out.println(e);
                     tempTreeMap.put(e.getKey(), e.getValue());
-                    System.out.println(e.getKey());
+                    //System.out.println(e.getKey());
                 }
             }
 
