@@ -56,7 +56,7 @@ public class ScanText {
 //                    //stringBuilder.append(e.getKey()).append("\n").toString();
 //                    //System.out.println(stringBuilder);
 //                    count++;
-//                    if (e.getKey()==null) break;
+//                    if (e.getKey()==null) break;111
 //
 //                }
 //                if (count >= 10) break;
