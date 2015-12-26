@@ -1,14 +1,21 @@
 package com.autocomplete;
 
 
-import sun.reflect.generics.tree.Tree;
 
-import java.io.*;
-import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ScanText {
     TreeMap<String, String> dictionaryMap;
     TreeMap<String, String> tempTreeMap;
+    HashMap<String, String> tempHashMap;
     ArrayList<String> spisokSlov;
 
 
@@ -16,7 +23,7 @@ public class ScanText {
 
 
 
-    public void parseFile() throws IOException{
+    public final void parseFile() throws IOException{
         dictionaryMap = new TreeMap();
         spisokSlov = new ArrayList<>(1000000);
         final BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -38,17 +45,18 @@ public class ScanText {
         System.out.println(dictionaryMap.lastKey());
     }
 
-    public void findMatches() {
+    public final void findMatches() {
         //tempTreeMap = new TreeMap();
-        long before = System.currentTimeMillis();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i=0;i< spisokSlov.size();i++) {
-            int count = 0;
+        tempHashMap = new HashMap<>(dictionaryMap);
+        final long before = System.currentTimeMillis();
+        //StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < spisokSlov.size(); i++) {
+            final int count = 0;
 
-            for (final Map.Entry e : dictionaryMap.entrySet()) {
-//
-//
-//                if (e.getKey().toString().startsWith(spisokSlov.get(i))){
+            for (final Map.Entry e : tempHashMap.entrySet()) {
+
+
+                if (e.getKey().toString().startsWith(spisokSlov.get(i))) {
 //
 //                    //System.out.println(e);
 //                    //tempTreeMap.put(e.getKey(), e.getValue());
@@ -56,17 +64,17 @@ public class ScanText {
 //                    //stringBuilder.append(e.getKey()).append("\n").toString();
 //                    //System.out.println(stringBuilder);
 //                    count++;
-//                    if (e.getKey()==null) break;111
+//                    if (e.getKey()==null) break;
 //
-//                }
-//                if (count >= 10) break;
-//
+                }
+                if (count >= 10) break;
+
             }
 
                 //System.out.println("--------------------------------------");
             }
-        long after = System.currentTimeMillis();
-        System.out.println((after - before)/1000 + "s.");
+        final long after = System.currentTimeMillis();
+        System.out.println((after - before) / 1000 + "s.");
 //            List linkedList = new ArrayList(Sorter.SortByValue(tempTreeMap));
 //            for (int f = (linkedList.size() - 1); f > (linkedList.size() - 11); f--) {
 //                System.out.println(linkedList.get(f));
