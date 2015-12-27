@@ -50,13 +50,13 @@ public class ScanText {
         tempHashMap = new HashMap<>(dictionaryMap);
         final long before = System.currentTimeMillis();
         //StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < spisokSlov.size(); i++) {
+        for (String slovo : spisokSlov) {
             final int count = 0;
 
-            for (final Map.Entry e : tempHashMap.entrySet()) {
+            for (final Map.Entry<String, String> e : tempHashMap.entrySet()) {
 
 
-                if (e.getKey().toString().startsWith(spisokSlov.get(i))) {
+                if (e.getKey().toString().startsWith(slovo)) {
 //
 //                    //System.out.println(e);
 //                    //tempTreeMap.put(e.getKey(), e.getValue());
