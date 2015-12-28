@@ -94,7 +94,7 @@ public class ScanText {//NOPMD
         out.println((after - before) / 1000 + "s.");
         @SuppressWarnings("unchecked")
         final List linkedList =
-                new ArrayList<>(Sorter.SortByValue((TreeMap) tempTreeMap));
+                new ArrayList<>(Sorter.sortByValue((TreeMap) tempTreeMap));
         for (int f = (linkedList.size() - 1);
              f > (linkedList.size() - 11); f--) {
             out.println(linkedList.get(f));
